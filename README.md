@@ -82,7 +82,7 @@ A full-stack web application for managing store ratings with role-based access c
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/athu22/Rating-system.git
 cd store-rating-system
 ```
 
@@ -167,11 +167,6 @@ After running the database setup, you can login with the following default accou
 - **Email**: user@store-rating.com
 - **Password**: User123!
 - **Role**: User (Browse stores and submit ratings)
-
-> **Note**: Currently only the admin account is created by default. To add the store owner and user accounts, you can either:
-> 1. Register them through the application interface
-> 2. Add them manually to the database
-> 3. Modify the database setup script to include these default users
 
 ## API Endpoints
 
