@@ -1,0 +1,15 @@
+{
+  "short_name": "Store Rating",
+  "name": "Store Rating System",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#3498db",
+  "background_color": "#ffffff"
+} 
