@@ -104,14 +104,14 @@ CREATE DATABASE store_rating_system;
 2. Create a `.env` file in the `server` directory:
 ```env
 # Database Configuration
+DB_NAME=store_rating
+DB_USER=myuser
+DB_PASSWORD=mypassword
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=store_rating_system
-DB_USER=postgres
-DB_PASSWORD=your_password
 
 # JWT Configuration
-JWT_SECRET=your_jwt_secret_key_here
+JWT_SECRET=supersecurejwtkey123
 JWT_EXPIRES_IN=24h
 
 # Server Configuration
