@@ -20,8 +20,10 @@ const authenticateToken = async (req, res, next) => {
     }
 
     req.user = result.rows[0];
+    console.log(`[AUTH] User authenticated: ${req.user.id} (${req.user.role})`);
     next();
   } catch (error) {
+    console.error('[AUTH] Token verification failed:', error.message);
     return res.status(403).json({ message: 'Invalid token' });
   }
 };

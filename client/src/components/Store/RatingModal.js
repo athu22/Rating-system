@@ -190,7 +190,7 @@ const StarButton = styled.button`
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  color: ${props => props.filled ? '#f39c12' : '#ddd'};
+  color: ${props => props.$filled ? '#f39c12' : '#ddd'};
   transition: color 0.3s ease;
 
   &:hover {
@@ -348,6 +348,7 @@ const RatingModal = ({ store, existingRating, isOpen, onClose, onSubmit }) => {
     }
 
     const ratingData = {
+      store_id: store.id,
       rating,
       comment,
     };
@@ -427,7 +428,7 @@ const RatingModal = ({ store, existingRating, isOpen, onClose, onSubmit }) => {
               {[1, 2, 3, 4, 5].map((star) => (
                 <StarButton
                   key={star}
-                  filled={star <= (hoveredRating || rating)}
+                  $filled={star <= (hoveredRating || rating)}
                   onClick={() => setRating(star)}
                   onMouseEnter={() => setHoveredRating(star)}
                   onMouseLeave={() => setHoveredRating(0)}

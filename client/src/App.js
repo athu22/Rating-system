@@ -17,7 +17,7 @@ import ProtectedRoute from './components/Auth/ProtectedRoute';
 import LoadingSpinner from './components/UI/LoadingSpinner';
 
 const AppRoutes = () => {
-  const { loading } = useAuth();
+  const { loading, user } = useAuth();
 
   if (loading) {
     return <LoadingSpinner />;
@@ -25,14 +25,20 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      {/* Public routes */}
+      {/* Public routes - always accessible */}
       <Route path="/login" element={<LoginForm />} />
       <Route path="/register" element={<RegisterForm />} />
       
-      {/* Protected routes */}
+      {/* Redirect root to login if not authenticated, otherwise to dashboard */}
+      <Route 
+        path="/" 
+        element={
+          user ? <Navigate to="/dashboard" replace /> : <Navigate to="/login" replace />
+        } 
+      />
+      
+      {/* Protected routes - require authentication */}
       <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="/dashboard" replace />} />
-        
         {/* User dashboard */}
         <Route
           path="dashboard"
@@ -120,8 +126,13 @@ const AppRoutes = () => {
         />
       </Route>
       
-      {/* Catch all route */}
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      {/* Catch all route - redirect to login if not authenticated */}
+      <Route 
+        path="*" 
+        element={
+          user ? <Navigate to="/dashboard" replace /> : <Navigate to="/login" replace />
+        } 
+      />
     </Routes>
   );
 };
